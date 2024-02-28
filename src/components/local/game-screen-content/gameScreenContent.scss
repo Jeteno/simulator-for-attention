@@ -1,0 +1,41 @@
+.game-screen-content__page {
+   padding: 30px 45px 32px;
+}
+.game-screen-content__body {
+   flex-direction: column;
+   gap: 30px;
+   padding: 0 20px;
+}
+.game-screen-content__title-h {
+   font-family: 'Open Sans';
+   text-align: center;
+   font-size: 21px;
+   font-weight: 800;
+   line-height: 26px;
+   color: #8f4af9;
+}
+.game-screen-content__list {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+.game-screen-content__paragraph {
+   display: flex;
+   gap: 14px;
+}
+.game-screen-content__paragraph-body-title {
+   font-family: 'Open Sans';
+   font-size: 16px;
+   line-height: 20px;
+   font-weight: 800;
+   color: #333;
+   text-align: left;
+}
+.game-screen-content__paragraph-body-subtitle {
+   font-family: 'Open Sans';
+   font-size: 16px;
+   text-align: left;
+   color: #333;
+   line-height: 20px;
+}

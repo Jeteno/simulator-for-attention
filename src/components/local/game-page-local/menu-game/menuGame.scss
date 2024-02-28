@@ -1,0 +1,34 @@
+.game-menu__wrapper {
+   position: absolute;
+   top: 0;
+   right: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 70%;
+   height: auto;
+   min-width: 288px;
+   padding: 0 16px;
+   background-color: hsla(0,0%,100%,.4);
+   color: #333;
+   z-index: 9999;
+}
+.game-menu__body {
+   text-align: center;
+}
+.game-menu__body-title {
+}
+.game-menu__body-title-h {
+   font-family: 'Open Sans';
+   font-size: 10px;
+   font-weight: 600;
+}
+.game-menu__body-subtime {
+}
+.game-menu__body-subtime-p {
+   font-family: 'Montserrat';
+   font-weight: 900;
+   font-size: 16px;
+   font-feature-settings: "tnum";
+   font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,26 @@
+.game-screen__table {
+   text-align: left;
+}
+.game-screen__table-row {
+   margin-bottom: 10px;
+   font-size: 0.88em;
+   display: table-row;
+   vertical-align: inherit;
+   border-color: inherit;
+   font-weight: 600;
+   color: #3f3f3f;
+   font-family: 'Open Sans';
+}
+.game-screen__table-cell {
+   color: #999;
+   height: 28px;
+   text-align: left;
+   font-size: inherit;
+   font-weight: 500;
+   display: table-cell;
+   vertical-align: inherit;
+   &:nth-of-type(2) {
+      font-weight: 700;
+      color: #3f3f3f;
+   }
+}

@@ -1,0 +1,24 @@
+.result__page {
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   min-height: 573px;
+
+}
+.result__body {
+   position: relative;
+   background: #fff;   
+   width: 86.7%;   
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   min-height: 478px;
+   gap: 30px;
+}
+
+@import '../../local/result-local/result-screen/resultScreen.scss';
+@import '../../local/result-local/button/button.scss';

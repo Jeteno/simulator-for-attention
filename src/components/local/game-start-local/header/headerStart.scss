@@ -1,0 +1,30 @@
+.example__content {
+   background: #4db8ec;   
+   width: 80%;   
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 3px;
+   padding: 4% 3%;
+   color: #fff;
+   -webkit-box-shadow: 0 7px 35px 0 rgba(0,0,0,.3);
+   box-shadow: 0 7px 35px 0 rgba(0,0,0,.3);
+   margin: 60px auto 0;
+}
+.example__subtitle {
+}
+.example__subtitle-p {
+   font-family: 'Open Sans';
+   font-size: 1.15em;
+   font-weight: 600;
+   color: #fff;
+}
+.example__title {
+}
+.example__title-h {
+   font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 3.15em;
+    line-height: 1;
+   color: #fff;
+}

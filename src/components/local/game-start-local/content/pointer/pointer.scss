@@ -1,0 +1,9 @@
+.pointer {
+   position: absolute;
+   width: 96px;
+   height: 103px;
+   left: 22%;
+   transform: translate(-50%, 280px);
+   z-index: 1;
+   background: url(../../../../../../public/gameStart/pointer.svg) no-repeat;
+}

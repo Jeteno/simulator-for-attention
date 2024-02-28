@@ -1,0 +1,47 @@
+.header__page {
+   position: relative;
+   background-color: #4db8ec;
+   background-image: url(../../../../../public/cover/header/dfa5695938b3bf438aa3e7e69eeea005.svg);
+   background-position: 50%;
+   background-repeat: no-repeat;
+   color: #fff;
+   min-height: 136px;
+   &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(271deg,rgba(168,129,253,.53),#5900b1)!important;
+      background-color: transparent;
+   }
+}
+.header__body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   width: 100%;
+}
+.header__title {
+   position: relative;
+   z-index: 60;
+}
+.header__title-h {
+   font-family: 'Open Sans';
+   font-weight: 800;
+   line-height: 26px;
+   font-size: 36px;
+}
+.header__subtitle {
+   position: relative;
+   z-index: 60;
+   text-align: center;
+}
+.header__subtitle-p {
+   font-family: 'Open Sans';
+   font-weight: 400;
+   line-height: 36px;
+   font-size: 18px;
+}

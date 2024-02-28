@@ -1,0 +1,83 @@
+.button-card__content {
+   width: 30%;
+   line-height: 80px;
+   font-size: 40px;
+   font-family: 'Montserrat';
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+}
+
+.button-card__content-more {
+   width: 22.5%;
+   line-height: 60px;
+   font-size: 30px;
+   font-family: 'Montserrat';
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+}
+
+.button-card__content-16{
+   width: 22.5%;
+   line-height: 50px;
+   font-size: 24px;
+   font-family: 'Montserrat';
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+}
+
+.button-card__content-25{
+   width: 18%;
+   line-height: 40px;
+   font-size: 18px;
+   font-family: 'Montserrat';
+   font-weight: 600;
+   color: #fff;
+   text-align: center;
+}
+
+.animation1 {
+   animation-name: blink;
+   animation-timing-function: linear;
+   animation-duration: 1s;
+   animation-iteration-count: infinite;
+}
+ 
+.animation2 {
+   animation: rotate .6s linear infinite;
+   animation-delay: .4s;
+}
+ 
+.animation3 {
+   animation: scale .4s ease-in infinite alternate;
+   animation-delay: .4s;
+}
+
+@keyframes blink {
+   50% {
+     opacity: 0;
+   }
+}
+
+@keyframes rotate {
+   100% {
+      transform: rotate(0);
+   }
+   75% {
+      transform: rotate(15deg);
+   }
+   50% {
+      transform: rotate(0);
+   }
+   25% {
+      transform: rotate(-15deg);
+   }
+}
+
+@keyframes scale {
+   100% {
+      transform: scale(.4);
+   }
+}

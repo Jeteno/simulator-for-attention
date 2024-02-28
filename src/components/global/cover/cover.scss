@@ -1,0 +1,13 @@
+.cover__page{
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #fff;
+   min-height: 573px;
+}
+
+@import '../../local/cover-local/header/headerLocal.scss';
+@import '../../local/game-screen-content/gameScreenContent.scss';
+@import '../../local/cover-local/footer/footer.scss';

@@ -1,0 +1,27 @@
+.game-start__page {
+   width: 80%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #fff;
+   min-height: 573px;
+   
+}
+.game-start_body {
+   position: relative;
+   background: #4db8ec;   
+   width: 86.7%;   
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: 30px;
+   align-items: center;
+   min-height: 478px;
+}
+
+@import '../../local/game-start-local/header/headerStart.scss';
+@import '../../local/game-start-local/content/wrapper/wrapper.scss';
+@import '../../local/game-start-local/content/card/card.scss';
+@import '../../local/game-start-local/content/footer/footer.scss';
+@import '../../local/game-start-local/content/pointer/pointer.scss';
