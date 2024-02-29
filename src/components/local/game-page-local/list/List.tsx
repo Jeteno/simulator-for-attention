@@ -1,5 +1,4 @@
 import Card from "../card/Card"
-// import {answersValuesType} from '../../../global/game-page/GamePage'
 import { answerRenderingProps } from '../../../../type'
 
 function Wrapper ({answerValuesRandom, answerChanged, level}: answerRenderingProps) {
@@ -13,12 +12,14 @@ function Wrapper ({answerValuesRandom, answerChanged, level}: answerRenderingPro
    };
 
    return (
-      <div className="card__list" style={{gap: level > 7 ? "10px": "innerhit"}}>
-         {answerValuesRandom.map(value => {
-            return (
-               <Card background={getRandomColor()} answer={value.answer} id={value.id} answerChanged={answerChanged} level={level}/>
-            )
-         })}
+      <div className="card__list" style={{gap: level && level > 7 ? "10px": "innerhit"}}>
+         {answerValuesRandom ? (
+            answerValuesRandom.map(value => {
+               return (
+                  <Card background={getRandomColor()} answer={value.answer} id={value.id} answerChanged={answerChanged} level={level}/>
+               )
+            })
+         ): null}
       </div>
    )
 }

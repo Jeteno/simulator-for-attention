@@ -3,11 +3,15 @@ import { useEffect } from 'react'
 
 function ResultScreen({glasses, resultAnswersRight, resultAnswersAll, accuracyAnswers, setAccuracyAnswers}: statisticsProps) {
    function calculateAccuracy(right: number, all:number) {
-      setAccuracyAnswers((right/all)*100)
+      if(setAccuracyAnswers) {
+         setAccuracyAnswers((right/all)*100)
+      }
    }
 
    useEffect(()=> {
-      calculateAccuracy(resultAnswersRight, resultAnswersAll)
+      if(resultAnswersRight && resultAnswersAll) {
+         calculateAccuracy(resultAnswersRight, resultAnswersAll)
+      }
    }, [])
 
    return (
@@ -36,7 +40,7 @@ function ResultScreen({glasses, resultAnswersRight, resultAnswersAll, accuracyAn
                         Точность ответов
                      </td>
                      <td className="game-screen__table-cell">
-                        {!Number.isNaN(accuracyAnswers) ? accuracyAnswers.toFixed(2) : 0}%
+                        {!Number.isNaN(accuracyAnswers) && accuracyAnswers ? accuracyAnswers.toFixed(2) : 0}%
                      </td>
                   </tr>
                </table>

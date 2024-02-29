@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-import { resetState } from '../../../../type'
+import { statisticsProps } from '../../../../type'
 
-function Button({resetState}: resetState) {
+function Button({resetState}: statisticsProps) {
    return (
       <Link className="result__button" to={'/'} onClick={resetState}>
          Попробовать еще раз

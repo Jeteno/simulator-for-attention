@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { answersType } from '../../../type'
 
 function GameStart() {
-   const [answerValues, setAnswerValues] = useState<answersType[]>([
+   const [answerValues] = useState<answersType[]>([
       {
          answer: 75,
       },

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { listValuesType } from '../../../type'
 
 function GameScreenContent () {
-   const [listValues, setListValues] = useState<listValuesType[]>([
+   const [listValues] = useState<listValuesType[]>([
       {
          title: 'Произвольное внимание',
          subtitle: 'Научитесь концентрировать внимание только на важном',
@@ -47,7 +47,6 @@ function GameScreenContent () {
                      </li>
                   ))}
                </ul>
-
             </div>
          </div>
       </section>

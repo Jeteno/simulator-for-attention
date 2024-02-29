@@ -16,6 +16,7 @@ export type statisticsProps = {
    setResultAnswersAll?: React.Dispatch<React.SetStateAction<number>>,
    accuracyAnswers?: number,
    setAccuracyAnswers?: React.Dispatch<React.SetStateAction<number>>,
+   resetState?: React.MouseEventHandler<HTMLAnchorElement>,
  }
 
 export type headerContentType = {
@@ -44,10 +45,10 @@ export type desiredOptionProps = {
 }
 
 export type answerRenderingProps = {
-   answerValuesRandom: answersValuesType[],
-   answerChanged: React.MouseEventHandler<HTMLButtonElement>,
-   level: number,
-   isUpdated: boolean,
+   answerValuesRandom?: answersValuesType[],
+   answerChanged?: React.MouseEventHandler<HTMLButtonElement>,
+   level?: number,
+   isUpdated?: boolean,
 }
 
 export type listValuesType = {
@@ -70,6 +71,6 @@ export type footerTypeProps = {
    footerContentBtn: footerType[],
 }
 
-export type resetState = {
-   resetState: React.MouseEventHandler<HTMLButtonElement>
-}
+// export type resetStateProps = {
+//    resetState: React.MouseEventHandler<HTMLButtonElement>
+// }

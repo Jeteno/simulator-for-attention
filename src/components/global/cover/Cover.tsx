@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { headerContentType } from '../../../type'
 
 function Cover () {
-   const [headerContent, setHeaderContent] = useState<headerContentType[]>([{
+   const [headerContent] = useState<headerContentType[]>([{
       title: 'Найдите число',
       subtitle: 'Тренажер на внимание'
    }])

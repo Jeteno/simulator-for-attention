@@ -2,7 +2,7 @@ import './gamePage.scss'
 import Header from '../../local/game-page-local/header/Header'
 import List from '../../local/game-page-local/list/List'
 import MenuGame from '../../local/game-page-local/menu-game/MenuGame'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { statisticsProps, answersValuesType } from '../../../type'
 
 function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, resultAnswersRight, setResultAnswersRight, resultAnswersAll, setResultAnswersAll}: statisticsProps) {
@@ -55,7 +55,7 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
 
    const generateNewAnswers = () => {
       let newAnswers = [];
-      let numberOfAnswers = level === 3 ? 6 : level === 5 ? 4 : level === 7 ? 9 : 12;
+      const numberOfAnswers: number = level === 3 ? 6 : level === 5 ? 4 : level === 7 ? 9 : 12;
 
       for (let i = 0; i < numberOfAnswers; i++) {
          newAnswers.push({ id: getIdAnswer(), answer: getRandomAnswer() });
@@ -70,8 +70,7 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
          levelChange(true)
          bonusChange(true)
          glassesChange(true)
-         updateResultAnswersRight(resultAnswersRight)
-         updateResultAnswersAll(resultAnswersAll)
+         console.log(resultAnswersRight)
          if (level === 3) {
             setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers().slice(0, 6)]);
          } else if (level === 5) {
@@ -79,38 +78,72 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
          } else if (level === 7) {
             setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers()]);
          }
+
+         if (typeof resultAnswersRight !== "undefined") {
+            updateResultAnswersRight(resultAnswersRight);
+         }
+         if (typeof resultAnswersAll !== "undefined") {
+            updateResultAnswersAll(resultAnswersAll)
+         }
+
       } else if (Number(value) !== desiredOption.answer) {
          levelChange(false)
          bonusChange(false)
          glassesChange(false)
-         updateResultAnswersAll(resultAnswersAll)
+
          if (level === 4) {
-            console.log(level)
-            console.log(answerValuesRandom.length)
             setAnswerValuesRandom(answerValuesRandom.slice(-6))
          } else if (level === 6) {
             setAnswerValuesRandom(answerValuesRandom.slice(-12))
          } else if (level === 8) {
             setAnswerValuesRandom(answerValuesRandom.slice(-16))
          }
+
+         if (typeof resultAnswersAll !== "undefined") {
+            updateResultAnswersAll(resultAnswersAll)
+         }
+      }
+   }
+
+   function updateResultAnswersRight(result: number) {
+      if (setResultAnswersRight) {
+        if (typeof resultAnswersRight === 'number') {
+          setResultAnswersRight(result + 1);
+        }
+      }
+    }
+
+   function updateResultAnswersAll (result: number) {
+      if(setResultAnswersAll) {
+         if(typeof resultAnswersAll === 'number') {
+            setResultAnswersAll(result + 1)
+         }
       }
    }
 
    function levelChange(result: boolean) {
-      if (result === true && level < 9) {
-         setLevel((prevLevel) => prevLevel + 1);
-      } else if (result === false && level > 1) {
-         setLevel((prevLevel) => prevLevel - 1);
+      if (result === true && level && level < 9) {
+         if(setLevel) {
+            setLevel((prevLevel) => prevLevel + 1);
+         }
+      } else if (result === false && level && level > 1) {
+         if (setLevel) {
+            setLevel((prevLevel) => prevLevel - 1);
+         }
       }
 
       return level;
    }
 
    function bonusChange(result: boolean) {
-      if (result === true && bonus < 5) {
-         setBonus((prevBonus) => prevBonus + 1);
-      } else if (result === false && bonus > 1) {
-         setBonus((prevBonus) => prevBonus - 1);
+      if (result === true && bonus && bonus < 5) {
+         if (setBonus) {
+            setBonus((prevBonus) => prevBonus + 1);
+         }
+      } else if (result === false && bonus && bonus > 1) {
+         if(setBonus) {
+            setBonus((prevBonus) => prevBonus - 1);
+         }
       }  
 
       return bonus;
@@ -118,22 +151,18 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
 
    function glassesChange(result: boolean) {
       if(result === true && level === 1) {
-         setGlasses(42)
-      } else if (result === true && level > 1) {
-         setGlasses((prevGlasses) => Math.floor(prevGlasses + 42 * bonus))
+         if(setGlasses) {
+            setGlasses(42)
+         }
+      } else if (result === true && level && level > 1) {
+         if(setGlasses && bonus) {
+            setGlasses((prevGlasses) => Math.floor(prevGlasses + 42 * bonus))
+         }
       } else if (result === false) {
          return glasses
       }
 
       return glasses
-   }
-
-   function updateResultAnswersRight (result: number) {
-      setResultAnswersRight(result + 1)
-   }
-
-   function updateResultAnswersAll (result: number) {
-      setResultAnswersAll(result + 1)
    }
 
    return (
