@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
 import { statisticsProps } from '../../../../type'
 
-function Button({resetState}: statisticsProps) {
+function Button({saveData}: statisticsProps) {
    return (
-      <Link className="result__button" to={'/'} onClick={resetState}>
-         Попробовать еще раз
+      <Link className="game-screen-content__link" to={'/History'} onClick={saveData}>
+         Далее
       </Link>
    )
 }

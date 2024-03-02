@@ -17,6 +17,8 @@ export type statisticsProps = {
    accuracyAnswers?: number,
    setAccuracyAnswers?: React.Dispatch<React.SetStateAction<number>>,
    resetState?: React.MouseEventHandler<HTMLAnchorElement>,
+   saveData?: React.MouseEventHandler<HTMLAnchorElement>,
+   data?: Array<{ date: string; glasses: number }> 
  }
 
 export type headerContentType = {

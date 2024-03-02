@@ -5,7 +5,7 @@ import Button from '../../local/result-local/button/Button'
 import { useState } from 'react'
 import { statisticsProps, headerContentType, } from '../../../type'
 
-function ResultPage({glasses, resultAnswersRight, resultAnswersAll, accuracyAnswers, setAccuracyAnswers, resetState}: statisticsProps) {
+function ResultPage({glasses, resultAnswersRight, resultAnswersAll, accuracyAnswers, setAccuracyAnswers, saveData}: statisticsProps) {
    const [headerContent] = useState<headerContentType[]>([{
       title: 'Ваши резуьтаты'
    }])
@@ -16,7 +16,7 @@ function ResultPage({glasses, resultAnswersRight, resultAnswersAll, accuracyAnsw
             <div className="result__body">
                <HeaderLocal headerContent={headerContent}/>
                <ResultScreen glasses={glasses} resultAnswersRight={resultAnswersRight} resultAnswersAll={resultAnswersAll} accuracyAnswers={accuracyAnswers} setAccuracyAnswers={setAccuracyAnswers}/>
-               <Button resetState={resetState}/>
+               <Button saveData={saveData}/>
             </div>
          </div>
       </section>

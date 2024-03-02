@@ -1,0 +1,35 @@
+.current-result__table {
+   display: table;
+   border-collapse: separate;
+   box-sizing: border-box;
+   text-indent: initial;
+   border-spacing: 2px;
+   border-color: gray;
+   text-align: center;
+   color: #3f3f3f;
+   font-family: 'Open Sans';
+   font-size: inherit;
+   font-weight: 400;
+   width: 100%;
+   text-align: left;
+
+}
+.current-result__table-row {
+   text-align: left;
+   font-size: .88em;
+   color: #999;
+   font-family: 'Open Sans';
+   font-weight: 400;
+}
+.current-result__table-cell {
+   &:first-child{
+      width: min-content;
+      border-bottom: 1px solid #e6e6e6;
+   }
+   &:last-child{
+      text-align: right;
+      width: 60%;
+      font-weight: 700;
+      color: #3f3f3f;
+   }
+}

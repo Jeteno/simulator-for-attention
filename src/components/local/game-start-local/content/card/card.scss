@@ -6,6 +6,9 @@
    font-weight: 600;
    color: #fff;
    text-align: center;
+   &:active {
+      box-shadow: 0 7px 35px 0 rgba(0, 0, 0, 0.3);
+   }
 }
 
 .button-card__content-more {
@@ -16,6 +19,9 @@
    font-weight: 600;
    color: #fff;
    text-align: center;
+   &:active {
+      box-shadow: 0 7px 35px 0 rgba(0, 0, 0, 0.3);
+   }
 }
 
 .button-card__content-16{
@@ -26,6 +32,9 @@
    font-weight: 600;
    color: #fff;
    text-align: center;
+   &:active {
+      box-shadow: 0 7px 35px 0 rgba(0, 0, 0, 0.3);
+   }
 }
 
 .button-card__content-25{
@@ -36,6 +45,9 @@
    font-weight: 600;
    color: #fff;
    text-align: center;
+   &:active {
+      box-shadow: 0 7px 35px 0 rgba(0, 0, 0, 0.3);
+   }
 }
 
 .animation1 {

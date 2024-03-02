@@ -24,6 +24,20 @@
    font-weight: 600;
 }
 .game-menu__body-subtime {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.game-menu__mult-round {
+   display: inline-block;
+   width: 6px;
+   height: 6px;
+   margin-right: 2px;
+   border-radius: 50%;
+   border: 1px solid #333;
+}
+.game-menu__mult-round--active {
+   background-color: #333;
 }
 .game-menu__body-subtime-p {
    font-family: 'Montserrat';

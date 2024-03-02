@@ -19,6 +19,39 @@
    min-height: 478px;
    gap: 30px;
 }
+.game__answer {
+}
+.game-answer__result {
+   content: "";
+   text-indent: -9999px;
+   z-index: 999999;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-top: -65px;
+   margin-left: -65px;
+   animation: scale .15s ease-in infinite alternate;
+   animation-delay: .15s;
+}
+.game__answer--right {
+   width: 130px;
+   height: 130px;
+   background: transparent url(../../../../public/game/true.png) no-repeat;
+}
+.game__answer--wrong {
+   width: 131px;
+   height: 130px;
+   background: transparent url(../../../../public/game/false.png) no-repeat;
+}
+.game-answer__result--hidden {
+   width: 0;
+   height: 0;
+}
+@keyframes scale {
+   100% {
+      transform: scale(.4);
+   }
+}
 
 @import '../../local/game-start-local/header/headerStart.scss';
 @import '../../local/game-page-local/list/list.scss';

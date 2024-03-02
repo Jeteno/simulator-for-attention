@@ -70,6 +70,11 @@ function MenuGame({level, glasses, bonus}: statisticsProps) {
                </h3>
             </div>
             <div className="game-menu__body-subtime">
+               <span className="game-menu__mult-round game-menu__mult-round--active"></span>
+               <span className={bonus && bonus >= 2 ? "game-menu__mult-round game-menu__mult-round--active" : "game-menu__mult-round"}></span>
+               <span className={bonus && bonus >= 3 ? "game-menu__mult-round game-menu__mult-round--active" : "game-menu__mult-round"}></span>
+               <span className={bonus && bonus >= 4 ? "game-menu__mult-round game-menu__mult-round--active" : "game-menu__mult-round"}></span>
+               <span className={bonus && bonus >= 5 ? "game-menu__mult-round game-menu__mult-round--active" : "game-menu__mult-round"}></span>
                <p className="game-menu__body-subtime-p">
                   x{bonus}
                </p>

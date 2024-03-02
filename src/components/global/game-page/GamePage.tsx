@@ -9,7 +9,7 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
    const getRandomAnswer = () => {
       let randomAnswer = 0;
       for (let i = 0; i < 50; i++) {
-         randomAnswer += Math.floor(Math.random() * 13);
+         randomAnswer += Math.floor(Math.random() * (10 * Math.random()) + Math.random());
       }
       return randomAnswer
    }
@@ -63,45 +63,29 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
       return newAnswers;
    };
 
-   function answerChanged(event: React.MouseEvent<HTMLButtonElement>) {
-      const value = event.currentTarget.value;
-   
-      if(Number(value) === desiredOption.answer) {
-         levelChange(true)
-         bonusChange(true)
-         glassesChange(true)
-         console.log(resultAnswersRight)
-         if (level === 3) {
-            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers().slice(0, 6)]);
-         } else if (level === 5) {
-            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers()]);
-         } else if (level === 7) {
-            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers()]);
-         }
+   function answerWrongUpdate() {
+      const answerWrong: HTMLElement| null = document.querySelector('.game__answer--wrong');
 
-         if (typeof resultAnswersRight !== "undefined") {
-            updateResultAnswersRight(resultAnswersRight);
-         }
-         if (typeof resultAnswersAll !== "undefined") {
-            updateResultAnswersAll(resultAnswersAll)
-         }
+      if(answerWrong) {
+         setTimeout(() => {
+            answerWrong.classList.remove('game-answer__result--hidden');
+         }, 10);
+         setTimeout(() => {
+            answerWrong.classList.add('game-answer__result--hidden');
+         }, 300);   
+      }
+   }
 
-      } else if (Number(value) !== desiredOption.answer) {
-         levelChange(false)
-         bonusChange(false)
-         glassesChange(false)
+   function answerRightUpdate() {
+      const answerRight: HTMLElement| null = document.querySelector('.game__answer--right');
 
-         if (level === 4) {
-            setAnswerValuesRandom(answerValuesRandom.slice(-6))
-         } else if (level === 6) {
-            setAnswerValuesRandom(answerValuesRandom.slice(-12))
-         } else if (level === 8) {
-            setAnswerValuesRandom(answerValuesRandom.slice(-16))
-         }
-
-         if (typeof resultAnswersAll !== "undefined") {
-            updateResultAnswersAll(resultAnswersAll)
-         }
+      if(answerRight) {
+         setTimeout(() => {
+            answerRight.classList.remove('game-answer__result--hidden');
+         }, 10);
+         setTimeout(() => {
+            answerRight.classList.add('game-answer__result--hidden');
+         }, 300);   
       }
    }
 
@@ -165,6 +149,50 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
       return glasses
    }
 
+   function answerChanged(event: React.MouseEvent<HTMLButtonElement>) {
+      const value = event.currentTarget.value;
+   
+      if(Number(value) === desiredOption.answer) {
+         levelChange(true)
+         bonusChange(true)
+         glassesChange(true)
+         answerRightUpdate()
+
+         if (level === 3) {
+            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers().slice(0, 6)]);
+         } else if (level === 5) {
+            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers()]);
+         } else if (level === 7) {
+            setAnswerValuesRandom(prevValues => [...prevValues, ...generateNewAnswers()]);
+         }
+
+         if (typeof resultAnswersRight !== "undefined") {
+            updateResultAnswersRight(resultAnswersRight);
+         }
+         if (typeof resultAnswersAll !== "undefined") {
+            updateResultAnswersAll(resultAnswersAll)
+         }
+
+      } else if (Number(value) !== desiredOption.answer) {
+         levelChange(false)
+         bonusChange(false)
+         glassesChange(false)
+         answerWrongUpdate()
+
+         if (level === 4) {
+            setAnswerValuesRandom(answerValuesRandom.slice(-6))
+         } else if (level === 6) {
+            setAnswerValuesRandom(answerValuesRandom.slice(-12))
+         } else if (level === 8) {
+            setAnswerValuesRandom(answerValuesRandom.slice(-16))
+         }
+
+         if (typeof resultAnswersAll !== "undefined") {
+            updateResultAnswersAll(resultAnswersAll)
+         }
+      }
+   }
+
    return (
       <section className="game__page">
          <div className="game__container container">
@@ -172,6 +200,10 @@ function GamePage({level, setLevel, bonus, setBonus, glasses, setGlasses, result
                <Header desiredOption={desiredOption}/>
                <MenuGame level={level} bonus={bonus} glasses={glasses}/>
                <List answerValuesRandom={answerValuesRandom} answerChanged={answerChanged} level={level}/>
+               <div className="game__answer">
+                  <span className="game-answer__result--hidden game-answer__result game__answer--right"></span>
+                  <span className="game-answer__result--hidden game-answer__result game__answer--wrong"></span>
+               </div>
             </div>
          </div>
       </section>
